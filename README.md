@@ -43,4 +43,5 @@ Following environment values will be used for configuring the NiFi user you will
 - SINGLE_USER_CREDENTIALS_PASSWORD
 
 1. Access NiFi server at `https://localhost:8443/nifi/` and use aforementioned credentials to log in.
-2. Access NiFi Registry server at `http://localhost:18080/nifi-registry` and set up a bucket where to store changes. Refer to [System's Administration Guide](https://nifi.apache.org/docs/nifi-registry-docs/html/administration-guide.html) for detailed information. 
+2. Access NiFi Registry server at `http://localhost:18080/nifi-registry` and set up a bucket where to store changes. Refer to [System's Administration Guide](https://nifi.apache.org/docs/nifi-registry-docs/html/administration-guide.html) for detailed information.
+3. Configure registry from NiFi Server, refer to documentation for this, check video mentioned above.
