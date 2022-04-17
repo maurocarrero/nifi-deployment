@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  nifi:
+    build:
+      context: .
+      dockerfile: Dockerfile.nifi
+    image: apache/nifi:latest
+    ports:
+      - "8443:8443"
+    volumes:
+      - ../:/opt/nifi/nifi-current/ls-target
+      - ../data:/opt/nifi/nifi-current/data
+    env_file: .env
+  nifi-registry:
+    build:
+      context: .
+      dockerfile: Dockerfile.nifi-registry
+    image: apache/nifi-registry:latest
+    ports:
+      - "18080:18080"
+    volumes:
+      - ../flow_storage:/opt/nifi-registry/nifi-registry-current/flow_storage

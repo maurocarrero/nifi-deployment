@@ -1,0 +1,16 @@
+FROM apache/nifi-registry
+
+ARG REMOTE_ACCESS_USER
+ARG REMOTE_ACCESS_PASSWORD
+
+USER root
+
+WORKDIR /opt/nifi-registry/nifi-registry-current
+
+RUN apt-get update -y
+RUN apt-get install -y vim
+
+COPY providers-template.xml conf/providers.xml
+
+RUN sed -i 's/REMOTE_ACCESS_USER_PLACEHOLDER/$REMOTE_ACCESS_USER/g' conf/providers.xml
+RUN sed -i 's/REMOTE_ACCESS_PASSWORD_PLACEHOLDER/$REMOTE_ACCESS_PASSWORD/g' conf/providers.xml
